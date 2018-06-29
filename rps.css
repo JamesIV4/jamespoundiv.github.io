@@ -1,0 +1,95 @@
+body {
+    font-family: Lato;
+    margin:0;
+    background-color: rgb(61, 61, 61);
+}
+
+#center-well {
+width: 900px;
+min-height:100%;
+margin: 0 auto;
+box-shadow: 0px 20px 100px rgba(0, 0, 0, .5);
+background: white;
+}
+
+.gamebox {
+    padding:50px;
+
+}
+
+.game-content {
+    margin: 0 auto;
+    padding:25px;
+    width: 500px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(180, 180, 180);
+    border-radius: 5px;
+}
+
+h1 {
+text-align: center;
+}
+
+.buttonbox {
+    text-align:center;
+    margin: 0 auto;
+    padding:15px;
+    user-select: none;
+}
+
+.button {
+    background-color: rgb(88, 93, 110);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background-color: rgb(104, 112, 136);
+}
+
+.button:active {
+    background-color: rgb(54, 59, 71);
+}
+
+.button p {
+    margin: 5px 0;
+    user-select: none;
+    pointer-events: none;
+}
+
+.hide {
+    display: none;
+}
+
+.game-outcome-box {
+    padding:25px 25px 0 25px;
+    border-top: 1px solid rgb(180, 180, 180);
+    margin-top:25px;
+}
+
+.game-outcome-box h2 {
+    text-align: center;
+}
+
+@media only screen and (max-width: 1000px)
+{
+    #center-well {
+        width: 90%;
+        }
+}
+
+@media only screen and (max-width: 730px)
+{
+    .game-content {
+        width: 90%;
+    }
+}
