@@ -1,2 +1,0 @@
-# jamespoundiv
-My personal website
