@@ -2,6 +2,7 @@ body {
     font-family: Lato;
     margin:0;
     background-color: rgb(61, 61, 61);
+	height:100%;
 }
 
 #center-well {
