@@ -2,36 +2,41 @@ var cpuChoice = '';
 var outcome = '';
 var winCountOutput = '';
 var userInput = '';
-var valid = false;
 var wins = 0;
 var played = 0;
+var firstRun = true;
 
 $(function() {
 
-    //Hide the outcome box so we can animate later
-    //$('.game-outcome-box').hide();
+    //Don't accept clicks if an animation is happening
+    if ($('.game-outcome-box').is(':animated')) {
+        return;
+    } else {
+        $('.button').on('click', function(button) {
+            var idClicked = button.target.id;
+            switch (idClicked) {
+                case 'btn-rock':
+                    userInput = 'Rock';
+                    runGame();
+                break;
+                case 'btn-paper':
+                    userInput = 'Paper';
+                    runGame();
+                break;
+                case 'btn-scissors':
+                    userInput = 'Scissors';
+                    runGame();
+                break;
+            }
+            
+        });
 
-    $('.button').on('click', function(button) {
-        var idClicked = button.target.id;
-        switch (idClicked) {
-            case 'btn-rock':
-                userInput = 'Rock';
-                runGame();
-            break;
-            case 'btn-paper':
-                userInput = 'Paper';
-                runGame();
-            break;
-            case 'btn-scissors':
-                userInput = 'Scissors';
-                runGame();
-            break;
-        }
-        
-    });
+    };
+
+
     
     function runGame() {
-    
+
     //Get the computer's choice of number
     switch(Math.floor(Math.random() * 3)) {
       case 0:
@@ -97,12 +102,21 @@ $(function() {
     
     //Call the winner
     determineWinner(userInput,cpuChoice);
-    
-    //Display the outcome message
-    $('.game-outcome-text').html((outcome));
-    $('.win-counter').html(winCountOutput);
-    $('.game-outcome-box').show(400);
-    $('.game-outcome-box').removeClass('hide');
+
+    function updateWinner() {
+        $('.game-outcome-text').html(outcome);
+        $('.win-counter').html(winCountOutput);
+    };
+
+    if ($('.hide')[0]){
+            updateWinner();
+            $(".game-outcome-box").animate({height: 'toggle'}, 400);
+            $('.game-outcome-box').removeClass('hide');
+            firstRun = false;
+    } else {
+        $(".game-outcome-box").animate({height: 'toggle', opacity: 0}, 400).queue(function() {updateWinner();console.log('Updated');$(this).dequeue();});
+        $(".game-outcome-box").animate({height: 'toggle', opacity: 1}, 400);
+    };
 
     //Reset variables
     cpuChoice = '';
