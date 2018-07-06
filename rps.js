@@ -2,7 +2,6 @@ var cpuChoice = '';
 var outcome = '';
 var winCountOutput = '';
 var userInput = '';
-var valid = false;
 var wins = 0;
 var played = 0;
 
